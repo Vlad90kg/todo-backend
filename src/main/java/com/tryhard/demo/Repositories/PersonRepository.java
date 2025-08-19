@@ -1,7 +1,7 @@
 package com.tryhard.demo.Repositories;
 
-import com.tryhard.demo.Models.Todo;
+import com.tryhard.demo.Models.Person;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PersonRepository extends CrudRepository<Todo, Integer> {
+public interface PersonRepository extends CrudRepository<Person, Integer> {
 }
