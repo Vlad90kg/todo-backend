@@ -7,7 +7,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("api/person")
@@ -21,7 +20,7 @@ public class PersonController {
     }
 
     @GetMapping
-    public Iterable<Person> getAllPeople() {
+    public  Iterable<Person> getAllPeople() {
         return this.personRepository.findAll();
     }
 
@@ -31,7 +30,7 @@ public class PersonController {
     }
 
     @GetMapping(path = "/{id}/todos")
-    public Iterable<Todo> getTodosForPerson(@PathVariable Integer id) {
+    public Iterable<Todo> getTodosForPerson (@PathVariable Integer id) {
         System.out.println("getTodosForPerson with id: " + id);
 
         Optional<Person> person = this.personRepository.findById(id);
@@ -46,7 +45,7 @@ public class PersonController {
     }
 
     @GetMapping(path = "/{id}/todos/date")
-    public Iterable<Todo> getTodosForDate(@PathVariable Integer id, @RequestParam(name = "due_date") @DateTimeFormat(pattern = "dd-MM-yyyy") Date due) {
+    public Iterable<Todo> getTodosForDate (@PathVariable Integer id, @RequestParam(name = "due_date") @DateTimeFormat(pattern = "dd-MM-yyyy") Date due) {
         System.out.println("Getting todos before date " + due.toString() + " with person id: " + id);
         Optional<Person> person = this.personRepository.findById(id);
         if (person.isPresent()) {
