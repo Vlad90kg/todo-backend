@@ -29,7 +29,7 @@ public class TodoController {
 
     @PostMapping
     public Todo addTodo(@RequestBody Todo todo) {
-        System.out.println("Addong new todo " + todo.toString());
+        System.out.println("Adding new todo " + todo.toString());
         return this.todoRepository.save(todo);
     }
 
